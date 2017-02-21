@@ -13,7 +13,6 @@ header {
 	height: 20%;
 	padding-left: 80px;
 	display: block;
-
 }
 
 .level{
@@ -23,21 +22,23 @@ header {
 	justify-content: center;
 	margin: 0 auto;
 	margin-top: -30px;
-
 }
 
 .buttons{
 	display: flex; 
 	align-items: flex-start;
-	/*flex-wrap: wrap;*/
 	justify-content: flex-start;
 }
-
 
 .left-col{
 	display: flex;
 	flex-direction: column; 
 	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 85%;	
+	padding-top: 50px;
+	color: white;
 }
 .right-col{
 	display: flex; 
@@ -47,15 +48,16 @@ header {
 	right: 5%;
 	top: 10%;
 	margin-right: 30px;
-
 }
 
 .avatar{
-	
 	width: 40%;
-
-
 }
+.avatar img{
+	border-color: white;
+	margin-top: 10px;
+}
+
 .container{
   display: flex;
   align-items: center;
