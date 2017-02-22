@@ -5,67 +5,107 @@ var oldKanye = {
 	button1: true,
  	button2: null,
  	level: 1,
-	currentAnswer: '',
-checkAnswer: function(){
-  	if(this.button1 === true){
-      	alert("that is correct!")
-      	this.level = 2, 
-      	firstButton.innerHTML = "hello"
-      	newQuestion.innerHTML = "This is going to be the new question"
-  	}
-
- 	else if(this.button1 === false){
-    	alert("nope!")
-	}
-
-  	else if(this.button2 === true){
-  		alert("that is correct!")
-	}
-	
-  	else if(this.button2 === false){
-  		alert("nope!")
- }
+checkAnswer: function(action){
+  console.log(action)
+  	if(action === "level2"){
+      this.level2()
 }
+
+ 	else if(action === "die"){
+    	this.die()
+	}
+
+  else if(action === "level3"){
+    this.level3()
+  }
+
+    else if(action === "level4"){
+    this.level4()
+  }
+
+      else if(action === "level5"){
+    this.level5()
+  }
+
+      else if(action === "level6"){
+    this.level6()
+  }
+
+        else if(action === "level7"){
+    this.level7()
+  }
+
+          else if(action === "level8"){
+    this.level8()
+  }
+
+       else if(action === "level1"){
+    this.level1()
+}
+},
+
   die: function(){
     firstButton.innerHTML = "Restart"
     newQuestion.innerHTML = "Would you live to retry?"
-  }
+    firstButton.dataset.action = "level1"
+  },
+
+   level1: function(){
+    newQuestion.innerHTML = "You are overworked, sleep deprived, and exhausted, what do you do?"
+    firstButton.innerHTML = "Quite delicious!"
+    secondButton.innerHTML = "No"
+    firstButton.dataset.action = "level2"
+    secondButton.dataset.action = "level2"
+  },
+
   level2: function(){
     newQuestion.innerHTML = "Do you like fish sticks?"
     firstButton.innerHTML = "Quite delicious!"
     secondButton.innerHTML = "No"
-
-  }
+    firstButton.dataset.action = "level3"
+    secondButton.dataset.action = "level3"
+    firstButton.dataset.action = prompt("hey")
+  },
 
   level3: function(){
     newQuestion.innerHTML = "You have the opportunity to do a collaboration album, who do you choose to do it with"
-    firstButton.innerHTML = "Quite delicious!"
-    secondButton.innerHTML = "No"
-}
+    firstButton.innerHTML = "Jay-z"
+    secondButton.innerHTML = "Lupe Fiasco"
+    firstButton.dataset.action = "level4"
+    secondButton.dataset.action = "die"
+},
 
  level4: function(){
     newQuestion.innerHTML = "What is the best combination on LYRICS/BEATS?"
     firstButton.innerHTML = "70/30"
     secondButton.innerHTML = "30/70"
-}
+    firstButton.dataset.action = "level5"
+    secondButton.dataset.action = "die"
+},
 
  level5: function(){
     newQuestion.innerHTML = "You are looking to switch your music style up, do think it would be cool if you start using auto-tune?"
     firstButton.innerHTML = "Yes"
     secondButton.innerHTML = "No"
-}
+    firstButton.dataset.action = "die"
+    secondButton.dataset.action = "level6"
+},
 
  level6: function(){
-    newQuestion.innerHTML = "It is the year 2009, and the night of the VMA's. Do you drink heavily before it?"
+    newQuestion.innerHTML = "It is the year 2009, the night of the VMA's, and Taylor Swift just won best video. In hindsight, Do you drink heavily before the show?"
     firstButton.innerHTML = "Yes"
     secondButton.innerHTML = "Yes"
-}
+    firstButton.dataset.action = "level7"
+    secondButton.dataset.action = "level7"
+},
 
  level7: function(){
     newQuestion.innerHTML = "It is post Hurrican Katrina, you go on live tv with Mike Myers to raise funds for the victims, do you blurt out a controversial "
     firstButton.innerHTML = "Yes"
     secondButton.innerHTML = "No"
-}
+     firstButton.dataset.action = "level8"
+    secondButton.dataset.action = "level8"
+},
 
  level8: function(){
     newQuestion.innerHTML = "Quick! What is your favorite color polo?!"
@@ -77,28 +117,29 @@ checkAnswer: function(){
 
 
 
-
 }
 
-
-
 var firstButton = document.getElementById("button-1")
-var newButton1 = document.getElementById("button-1")
-var newQuestion = document.getElementsByClassName("question")[0]
 
-// newQuestion.addEventListener('click' , function(){
-//   oldKanye.checkAnswer()
-// });
+firstButton.addEventListener('click' , function(e){
+  oldKanye.checkAnswer(e.target.dataset.action)
 
-//how to click the first button and change question
-firstButton.addEventListener('click' , function(){
-  oldKanye.checkAnswer()
 });
-
-
+//
 var secondButton = document.getElementById("button-2")
-secondButton.addEventListener('click' , function(){
-	oldKanye.checkAnswer()
+
+secondButton.addEventListener('click' , function(e){
+  oldKanye.checkAnswer(e.target.dataset.action)
 
 });
+// var newButton1 = document.getElementById("button-1")
+var newQuestion = document.getElementsByClassName("question")[0]
+//
+
+
+
+
+
+
+
 
