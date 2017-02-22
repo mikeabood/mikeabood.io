@@ -1,4 +1,18 @@
+//start button for splash page
+// make modal for better looking pop-ups
+// swap out images on the site - album art - avatar
+// make better questions
+//change font on text
+
+
+
 console.log("mike");
+
+// function firstButton(firstButton.dataset.action); 
+// function secondButton(secondButton.dataset.action); 
+
+var bothButtons = firstButton && secondButton; 
+
 
 var oldKanye = {
 	name: "Kanye", 
@@ -50,6 +64,13 @@ checkAnswer: function(action){
     firstButton.dataset.action = "level1"
   },
 
+    win: function(){
+      //need to delete button(s)
+    firstButton.innerHTML = "Do it again"
+    newQuestion.innerHTML = "CONGRATULATIONS YE!!!"
+    firstButton.dataset.action = "level1"
+  },
+
    level1: function(){
     newQuestion.innerHTML = "You are overworked, sleep deprived, and exhausted, what do you do?"
     firstButton.innerHTML = "Quite delicious!"
@@ -64,7 +85,8 @@ checkAnswer: function(action){
     secondButton.innerHTML = "No"
     firstButton.dataset.action = "level3"
     secondButton.dataset.action = "level3"
-    firstButton.dataset.action = prompt("hey")
+    bothButtons = alert("good job")
+    document.getElementById("avKanye").src = "images/avatars/yeezus-av.jpg"
   },
 
   level3: function(){
@@ -73,6 +95,7 @@ checkAnswer: function(action){
     secondButton.innerHTML = "Lupe Fiasco"
     firstButton.dataset.action = "level4"
     secondButton.dataset.action = "die"
+     document.getElementById("avKanye").src = "images/avatars/throne-av.jpg"
 },
 
  level4: function(){
@@ -81,6 +104,7 @@ checkAnswer: function(action){
     secondButton.innerHTML = "30/70"
     firstButton.dataset.action = "level5"
     secondButton.dataset.action = "die"
+    document.getElementById("avKanye").src = "images/avatars/mbdtf-av.jpg"
 },
 
  level5: function(){
@@ -89,6 +113,7 @@ checkAnswer: function(action){
     secondButton.innerHTML = "No"
     firstButton.dataset.action = "die"
     secondButton.dataset.action = "level6"
+    document.getElementById("avKanye").src = "images/avatars/808s-av.jpg"
 },
 
  level6: function(){
@@ -97,6 +122,7 @@ checkAnswer: function(action){
     secondButton.innerHTML = "Yes"
     firstButton.dataset.action = "level7"
     secondButton.dataset.action = "level7"
+    document.getElementById("avKanye").src = "images/avatars/graduation-av.jpg"
 },
 
  level7: function(){
@@ -105,12 +131,16 @@ checkAnswer: function(action){
     secondButton.innerHTML = "No"
      firstButton.dataset.action = "level8"
     secondButton.dataset.action = "level8"
+    document.getElementById("avKanye").src = "images/avatars/lateregistration-av.jpg"
 },
 
  level8: function(){
     newQuestion.innerHTML = "Quick! What is your favorite color polo?!"
     firstButton.innerHTML = "Blue"
     secondButton.innerHTML = "Pink"
+    firstButton.dataset.action = "win"
+    secondButton.dataset.action = "win"
+    document.getElementById("avKanye").src = "images/avatars/collegedropout-av.jpg"
 }
 
 
@@ -134,7 +164,6 @@ secondButton.addEventListener('click' , function(e){
 });
 // var newButton1 = document.getElementById("button-1")
 var newQuestion = document.getElementsByClassName("question")[0]
-//
 
 
 
