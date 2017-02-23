@@ -15,6 +15,14 @@ header {
 	display: block;
 }
 
+#start{
+  font-family: 'Press Start 2P', cursive;
+  text-decoration: none; 
+  color: red;
+  font-size: 25px; 
+  
+}
+
 .level{
 	color: white; 
 	text-align: center;

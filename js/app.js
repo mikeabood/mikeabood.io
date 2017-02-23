@@ -8,17 +8,20 @@
 
 console.log("mike");
 
-// function firstButton(firstButton.dataset.action); 
-// function secondButton(secondButton.dataset.action); 
+
+function blink() {
+   var f = document.getElementById('start');
+   setInterval(function() {
+      f.style.display = (f.style.display == 'none' ? '' : 'none');
+   }, 700);
+}
+
 
 var bothButtons = firstButton && secondButton; 
 
 
 var oldKanye = {
 	name: "Kanye", 
-	button1: true,
- 	button2: null,
- 	level: 1,
 checkAnswer: function(action){
   console.log(action)
   	if(action === "level2"){
@@ -60,23 +63,26 @@ checkAnswer: function(action){
 
   die: function(){
     firstButton.innerHTML = "Restart"
-    newQuestion.innerHTML = "Would you live to retry?"
+    newQuestion.innerHTML = "Would you like to retry?"
     firstButton.dataset.action = "level1"
   },
 
-    win: function(){
+  win: function(){
       //need to delete button(s)
     firstButton.innerHTML = "Do it again"
     newQuestion.innerHTML = "CONGRATULATIONS YE!!!"
     firstButton.dataset.action = "level1"
   },
 
-   level1: function(){
+  level1: function(){
     newQuestion.innerHTML = "You are overworked, sleep deprived, and exhausted, what do you do?"
-    firstButton.innerHTML = "Quite delicious!"
-    secondButton.innerHTML = "No"
+    firstButton.innerHTML = "Rest"
+    secondButton.innerHTML = "Who care's"
     firstButton.dataset.action = "level2"
     secondButton.dataset.action = "level2"
+    document.getElementById("avKanye").src = "images/avatars/tlop-av.jpg"
+     document.getElementById("albCover").src = "images/albums/tlop.png"
+     disLevel.innerHTML = "Current Level 1/8"
   },
 
   level2: function(){
@@ -85,8 +91,11 @@ checkAnswer: function(action){
     secondButton.innerHTML = "No"
     firstButton.dataset.action = "level3"
     secondButton.dataset.action = "level3"
-    bothButtons = alert("good job")
+    // bothButtons = alert("good job")
     document.getElementById("avKanye").src = "images/avatars/yeezus-av.jpg"
+     document.getElementById("albCover").src = "images/albums/yeezus.png"
+     disLevel.innerHTML = "Current Level 2/8"
+
   },
 
   level3: function(){
@@ -96,15 +105,19 @@ checkAnswer: function(action){
     firstButton.dataset.action = "level4"
     secondButton.dataset.action = "die"
      document.getElementById("avKanye").src = "images/avatars/throne-av.jpg"
+     document.getElementById("albCover").src = "images/albums/throne.png"
+     disLevel.innerHTML = "Current Level 3/8"
 },
 
- level4: function(){
+  level4: function(){
     newQuestion.innerHTML = "What is the best combination on LYRICS/BEATS?"
     firstButton.innerHTML = "70/30"
     secondButton.innerHTML = "30/70"
     firstButton.dataset.action = "level5"
     secondButton.dataset.action = "die"
     document.getElementById("avKanye").src = "images/avatars/mbdtf-av.jpg"
+    document.getElementById("albCover").src = "images/albums/mbdtf.png"
+    disLevel.innerHTML = "Current Level 4/8"
 },
 
  level5: function(){
@@ -114,6 +127,8 @@ checkAnswer: function(action){
     firstButton.dataset.action = "die"
     secondButton.dataset.action = "level6"
     document.getElementById("avKanye").src = "images/avatars/808s-av.jpg"
+    document.getElementById("albCover").src = "images/albums/808s.png"
+    disLevel.innerHTML = "Current Level 5/8"
 },
 
  level6: function(){
@@ -123,15 +138,19 @@ checkAnswer: function(action){
     firstButton.dataset.action = "level7"
     secondButton.dataset.action = "level7"
     document.getElementById("avKanye").src = "images/avatars/graduation-av.jpg"
+    document.getElementById("albCover").src = "images/albums/graduation.png"
+    disLevel.innerHTML = "Current Level 6/8"
 },
 
  level7: function(){
     newQuestion.innerHTML = "It is post Hurrican Katrina, you go on live tv with Mike Myers to raise funds for the victims, do you blurt out a controversial "
     firstButton.innerHTML = "Yes"
     secondButton.innerHTML = "No"
-     firstButton.dataset.action = "level8"
+    firstButton.dataset.action = "level8"
     secondButton.dataset.action = "level8"
-    document.getElementById("avKanye").src = "images/avatars/lateregistration-av.jpg"
+    document.getElementById("avKanye").src = "images/avatars/latereg-av.jpg"
+    document.getElementById("albCover").src = "images/albums/lateregistration.png"
+    disLevel.innerHTML = "Current Level 7/8"
 },
 
  level8: function(){
@@ -140,7 +159,9 @@ checkAnswer: function(action){
     secondButton.innerHTML = "Pink"
     firstButton.dataset.action = "win"
     secondButton.dataset.action = "win"
-    document.getElementById("avKanye").src = "images/avatars/collegedropout-av.jpg"
+    document.getElementById("avKanye").src = "images/avatars/dropout-av.jpg"
+    document.getElementById("albCover").src = "images/albums/dropout.png"
+    disLevel.innerHTML = "Current Level 8/8"
 }
 
 
@@ -148,6 +169,8 @@ checkAnswer: function(action){
 
 
 }
+
+var disLevel = document.getElementById("lvl")
 
 var firstButton = document.getElementById("button-1")
 
