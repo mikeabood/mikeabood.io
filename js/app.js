@@ -1,5 +1,4 @@
 //start button for splash page
-// make modal for better looking pop-ups
 // swap out images on the site - album art - avatar
 // make better questions
 //change font on text
@@ -10,9 +9,9 @@ console.log("mike");
 
 
 function blink() {
-   var f = document.getElementById('start');
+   var blink = document.getElementById('start');
    setInterval(function() {
-      f.style.display = (f.style.display == 'none' ? '' : 'none');
+      blink.style.display = (blink.style.display == 'none' ? '' : 'none');
    }, 700);
 }
 
@@ -55,40 +54,49 @@ checkAnswer: function(action){
           else if(action === "level8"){
     this.level8()
   }
-
        else if(action === "level1"){
     this.level1()
 }
+    else if(action === "win"){
+      this.win()
+  }
 },
 
   die: function(){
     firstButton.innerHTML = "Restart"
     newQuestion.innerHTML = "Would you like to retry?"
-    firstButton.dataset.action = "level1"
+    firstButton.dataset.action = "level1"    
+     document.getElementById("button-2").style.visibility = "hidden";
   },
 
   win: function(){
       //need to delete button(s)
+       prompt("what is your favorite Kanye album?")
+    alert("Cool! No one cares!")
     firstButton.innerHTML = "Do it again"
-    newQuestion.innerHTML = "CONGRATULATIONS YE!!!"
+    secondButton.innerHTML = "NO"
+    newQuestion.innerHTML = "Congratulations, You win absolutely nothing!"
+    document.getElementById("button-2").style.visibility = "hidden";
     firstButton.dataset.action = "level1"
   },
 
   level1: function(){
-    newQuestion.innerHTML = "You are overworked, sleep deprived, and exhausted, what do you do?"
-    firstButton.innerHTML = "Rest"
-    secondButton.innerHTML = "Who care's"
+    document.getElementById("button-2").style.visibility = "visible";
+    newQuestion.innerHTML = "Cancel tour and meet with the current U.S President?"
+    firstButton.innerHTML = "YES"
+    secondButton.innerHTML = "NO"
     firstButton.dataset.action = "level2"
     secondButton.dataset.action = "level2"
     document.getElementById("avKanye").src = "images/avatars/tlop-av.jpg"
      document.getElementById("albCover").src = "images/albums/tlop.png"
      disLevel.innerHTML = "Current Level 1/8"
+
   },
 
   level2: function(){
     newQuestion.innerHTML = "Do you like fish sticks?"
-    firstButton.innerHTML = "Quite delicious!"
-    secondButton.innerHTML = "No"
+    firstButton.innerHTML = "Yes, very much"
+    secondButton.innerHTML = "No, not the slightest"
     firstButton.dataset.action = "level3"
     secondButton.dataset.action = "level3"
     // bothButtons = alert("good job")
@@ -99,9 +107,9 @@ checkAnswer: function(action){
   },
 
   level3: function(){
-    newQuestion.innerHTML = "You have the opportunity to do a collaboration album, who do you choose to do it with"
-    firstButton.innerHTML = "Jay-z"
-    secondButton.innerHTML = "Lupe Fiasco"
+    newQuestion.innerHTML = "Which artist do you chose to collaborate on an album with?"
+    firstButton.innerHTML = "JAY-Z"
+    secondButton.innerHTML = "LUPE FIASCO"
     firstButton.dataset.action = "level4"
     secondButton.dataset.action = "die"
      document.getElementById("avKanye").src = "images/avatars/throne-av.jpg"
@@ -110,9 +118,9 @@ checkAnswer: function(action){
 },
 
   level4: function(){
-    newQuestion.innerHTML = "What is the best combination on LYRICS/BEATS?"
-    firstButton.innerHTML = "70/30"
-    secondButton.innerHTML = "30/70"
+    newQuestion.innerHTML = "What is the original shoe brand of the 'Yeezy?'"
+    firstButton.innerHTML = "Nike"
+    secondButton.innerHTML = "Adidas"
     firstButton.dataset.action = "level5"
     secondButton.dataset.action = "die"
     document.getElementById("avKanye").src = "images/avatars/mbdtf-av.jpg"
@@ -121,7 +129,7 @@ checkAnswer: function(action){
 },
 
  level5: function(){
-    newQuestion.innerHTML = "You are looking to switch your music style up, do think it would be cool if you start using auto-tune?"
+    newQuestion.innerHTML = "Should you make an album with auto-tune"
     firstButton.innerHTML = "Yes"
     secondButton.innerHTML = "No"
     firstButton.dataset.action = "die"
@@ -132,7 +140,7 @@ checkAnswer: function(action){
 },
 
  level6: function(){
-    newQuestion.innerHTML = "It is the year 2009, the night of the VMA's, and Taylor Swift just won best video. In hindsight, Do you drink heavily before the show?"
+    newQuestion.innerHTML = "Should you pre-game the 2009 VMA awards?"
     firstButton.innerHTML = "Yes"
     secondButton.innerHTML = "Yes"
     firstButton.dataset.action = "level7"
@@ -143,7 +151,7 @@ checkAnswer: function(action){
 },
 
  level7: function(){
-    newQuestion.innerHTML = "It is post Hurrican Katrina, you go on live tv with Mike Myers to raise funds for the victims, do you blurt out a controversial "
+    newQuestion.innerHTML = "It is post Hurricane Katrina, you are on live tv with Mike Myers to raise funds for the victims, do you blurt out a controversial statement?"
     firstButton.innerHTML = "Yes"
     secondButton.innerHTML = "No"
     firstButton.dataset.action = "level8"
@@ -187,6 +195,8 @@ secondButton.addEventListener('click' , function(e){
 });
 // var newButton1 = document.getElementById("button-1")
 var newQuestion = document.getElementsByClassName("question")[0]
+
+
 
 
 
